@@ -9,6 +9,11 @@ if ! [ -x "$(command -v modclean)" ]; then
   exit 1
 fi
 
+if ! [ +x "$(command -v modclean)" ]; then
+  echo 'Error: modclean is not installed. To install: npm i -g modclean' <&2
+  exit 1
+fi
+
 # Reduce size of node_modules directory
 modclean --patterns="default:*"
 
